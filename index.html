@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New</title>
+</head>
+<body>
+<h1>Hello</h1>
+<div class="container">
+            <h2>Your choice: <span id="user-text"><strong>...Nothing.</strong></span></h2>
+            <h2>Computer coice: <span id="computer-text">...</span></h2>
+            <h2>Wins: <span id = "wins">..</span></h2>
+              <h2>Losses: <span id = "loss">..</span></h2>
+              <h2>Ties: <span id = "tie">..</span></h2>
+
+    </div>
+
+
+    <script type="text/javascript">
+     var win = 0;
+     var loose=0;
+     var tie =0;
+     var Moves=["r","p","s"];
+     var UserInput = document.getElementById("user-text");
+     var ComputerInput = document.getElementById("computer-text");
+     document.onkeyup = function(event) {
+        UserInput.textContent = event.key;
+        var Computer = Moves[Math.floor(Math.random() * Moves.length)];
+        ComputerInput.textContent = Computer;
+        if(UserInput.textContent==Computer){
+          console.log("tie");
+          tie++;
+          document.getElementById("tie").textContent=tie;
+        }else if(UserInput.textContent=="r"&&Computer=="s"){
+          console.log("win");
+          win++;
+          document.getElementById("wins").textContent=win;
+        }else if(UserInput.textContent=="r"&&Computer=="p"){
+          console.log("loose");
+          loose++;
+          document.getElementById("loss").textContent=loose;
+        }else if(UserInput.textContent=="p"&&Computer=="s"){
+          console.log("loose!");
+          loose++;
+          document.getElementById("loss").textContent=loose;
+        }else if(UserInput.textContent=="p"&&Computer=="r"){
+          console.log("win!");
+          win++;
+          document.getElementById("wins").textContent=win;
+        }else if(UserInput.textContent=="s"&&Computer=="r"){
+          console.log("loose");
+          loose++;
+          document.getElementById("loss").textContent=loose;
+        }else if(UserInput.textContent=="s"&&Computer=="p"){
+          console.log("win!");
+          win++;
+          document.getElementById("wins").textContent=win;
+        }
+      };
+
+  </script>
+</body>
+</html>
